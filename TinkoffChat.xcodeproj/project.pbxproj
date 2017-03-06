@@ -14,6 +14,7 @@
 		50FE92AE1E6D811900099E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50FE92AD1E6D811900099E0B /* Assets.xcassets */; };
 		50FE92B11E6D811900099E0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50FE92AF1E6D811900099E0B /* LaunchScreen.storyboard */; };
 		50FE92BC1E6D811900099E0B /* TinkoffChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92BB1E6D811900099E0B /* TinkoffChatTests.swift */; };
+		50FE92C71E6D827400099E0B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 50FE92C61E6D827400099E0B /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		50FE92B71E6D811900099E0B /* TinkoffChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinkoffChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FE92BB1E6D811900099E0B /* TinkoffChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffChatTests.swift; sourceTree = "<group>"; };
 		50FE92BD1E6D811900099E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50FE92C61E6D827400099E0B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		50FE92971E6D811900099E0B = {
 			isa = PBXGroup;
 			children = (
+				50FE92C61E6D827400099E0B /* .gitignore */,
 				50FE92A21E6D811900099E0B /* TinkoffChat */,
 				50FE92BA1E6D811900099E0B /* TinkoffChatTests */,
 				50FE92A11E6D811900099E0B /* Products */,
@@ -184,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FE92C71E6D827400099E0B /* .gitignore in Resources */,
 				50FE92B11E6D811900099E0B /* LaunchScreen.storyboard in Resources */,
 				50FE92AE1E6D811900099E0B /* Assets.xcassets in Resources */,
 				50FE92A91E6D811900099E0B /* Main.storyboard in Resources */,
