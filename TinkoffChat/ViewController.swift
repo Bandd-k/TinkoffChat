@@ -91,19 +91,18 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     
     
     func printDebug(){
-        print(nameField.description)
-        print(colorText.description)
-        print(userImage.description)
-        print(aboutUserLabel.description)
-        print(aboutTextView.description)
-        print(userImageLabel.description)
-        print(saveButton.description)
-        print(nameField.description)
-        print(colorButton1.description)
-        print(colorButton2.description)
-        print(colorButton3.description)
-        print(colorButton4.description)
-        print(colorButton5.description)
+        print("nameField: "+nameField.description)
+        print("colorText: "+colorText.description)
+        print("userImage: "+userImage.description)
+        print("aboutUserLabel: "+aboutUserLabel.description)
+        print("aboutTextView: "+aboutTextView.description)
+        print("userImageLabel: "+userImageLabel.description)
+        print("saveButton: "+saveButton.description)
+        print("colorButton1: "+colorButton1.description)
+        print("colorButton2: "+colorButton2.description)
+        print("colorButton3: "+colorButton3.description)
+        print("colorButton4: "+colorButton4.description)
+        print("colorButton5: "+colorButton5.description)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
