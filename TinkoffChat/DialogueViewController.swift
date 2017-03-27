@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 class DialogueViewController: UIViewController,UITableViewDataSource {
 
-    var messages:[String] = [String.random(length: 1),String.random(length: 30),String.random(length: 300)]
+    var messages:[String] = [String.random(length: 1),String.random(length: 30),String.random(length: 300),String.random(length: 1),String.random(length: 30),String.random(length: 300)]
     @IBOutlet weak var messagesTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

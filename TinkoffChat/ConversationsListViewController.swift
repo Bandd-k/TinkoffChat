@@ -34,10 +34,10 @@ let offlineUsers = 20
 func generator()->[cellData]{
     var array:[cellData] = []
     for index in 1...onlineUsers{
-        array.append(cellData(name: String.random(length: 1+Int(arc4random_uniform(5))), message: String.random(length: Int(arc4random_uniform(10))), date: Date.init(timeIntervalSinceNow: TimeInterval(-1 * Int(arc4random_uniform(24*60*60)))), online: true, hasUnreaded: index%5==0))
+        array.append(cellData(name: String.random(length: 1+Int(arc4random_uniform(5))), message: String.random(length: Int(arc4random_uniform(10))), date: Date.init(timeIntervalSinceNow: TimeInterval(-1 * Int(arc4random_uniform(24*60*60*2)))), online: true, hasUnreaded: index%5==0))
     }
     for index in 1...offlineUsers{
-        array.append(cellData(name: String.random(length: 1+Int(arc4random_uniform(5))), message: String.random(length: Int(arc4random_uniform(10))), date: Date.init(timeIntervalSinceNow: TimeInterval(-1 * Int(arc4random_uniform(24*60*60)))), online: false, hasUnreaded: index%4==0))
+        array.append(cellData(name: String.random(length: 1+Int(arc4random_uniform(5))), message: String.random(length: Int(arc4random_uniform(10))), date: Date.init(timeIntervalSinceNow: TimeInterval(-1 * Int(arc4random_uniform(24*60*60*2)))), online: false, hasUnreaded: index%4==0))
     }
     return array
 }
