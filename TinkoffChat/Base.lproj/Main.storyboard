@@ -46,9 +46,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dH2-Lt-CcT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dH2-Lt-CcT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatCell" rowHeight="64" id="lXO-Vi-dHE" customClass="ConversationsCell" customModule="TinkoffChat" customModuleProvider="target">
@@ -98,6 +97,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dH2-Lt-CcT" firstAttribute="leading" secondItem="0yu-dX-rFn" secondAttribute="leading" id="1AO-7S-7NQ"/>
+                            <constraint firstItem="dH2-Lt-CcT" firstAttribute="top" secondItem="0yu-dX-rFn" secondAttribute="top" id="EaV-AZ-8jr"/>
+                            <constraint firstAttribute="trailing" secondItem="dH2-Lt-CcT" secondAttribute="trailing" id="e0L-c5-dtg"/>
+                            <constraint firstItem="9pi-zE-dJ3" firstAttribute="top" secondItem="dH2-Lt-CcT" secondAttribute="bottom" id="tIU-iI-8Nk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tinkoff Chat" id="0zb-Ah-dap">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="gua-WB-Ox0">
@@ -239,15 +244,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Изображение пользователя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNT-GT-3J9">
-                                <rect key="frame" x="16" y="258" width="225" height="20.5"/>
+                                <rect key="frame" x="16" y="238" width="225" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-user" translatesAutoresizingMaskIntoConstraints="NO" id="xpd-MR-rTn">
-                                <rect key="frame" x="93" y="294.5" width="189" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" image="placeholder-user" translatesAutoresizingMaskIntoConstraints="NO" id="xpd-MR-rTn">
+                                <rect key="frame" x="97.5" y="274.5" width="180" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="xpd-MR-rTn" secondAttribute="height" multiplier="21:20" id="fxw-Kb-Tu4"/>
+                                    <constraint firstAttribute="width" secondItem="xpd-MR-rTn" secondAttribute="height" multiplier="1:1" id="fxw-Kb-Tu4"/>
                                     <constraint firstAttribute="height" constant="180" id="kZK-dI-cYe"/>
                                 </constraints>
                             </imageView>
@@ -278,10 +283,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ha9-e1-UG5">
-                                <rect key="frame" x="16" y="162" width="343" height="88"/>
+                                <rect key="frame" x="16" y="162" width="343" height="68"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="bbK-fe-9Ie"/>
+                                    <constraint firstAttribute="height" constant="68" id="bbK-fe-9Ie"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
