@@ -161,6 +161,9 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func cancelTaped(_ sender: Any) {
+        self.dismiss(animated: true, completion: {});
+    }
 
 }
 
