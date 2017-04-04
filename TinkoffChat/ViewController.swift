@@ -15,6 +15,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     
     @IBOutlet weak var userNameLabel: UILabel!
     
+
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var aboutUserLabel: UILabel!
     
     @IBOutlet weak var aboutTextView: UITextView!
@@ -23,6 +25,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     
     @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var saveButtonOperations: UIButton!
     @IBOutlet weak var colorButton1: UIButton!
     
     @IBOutlet weak var colorButton2: UIButton!
@@ -34,7 +37,20 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     @IBOutlet weak var colorButton5: UIButton!
     
     
-    
+    var saving: Bool  = false{
+        didSet{
+            if(saving){
+                activityIndicator.startAnimating()
+                saveButton.isEnabled = false
+                saveButtonOperations.isEnabled = false
+            }
+            else{
+                activityIndicator.stopAnimating()
+                saveButton.isEnabled = true
+                saveButtonOperations.isEnabled = true
+            }
+        }
+    }
     
     let picker = UIImagePickerController()
     
@@ -52,42 +68,13 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         picker.delegate = self
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary
-        // Debug info
-        print("######################################")
-        print("\(#function)")
-        self.printDebug()
-        print("######################################")
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        // Debug info
-        print("######################################")
-        print("\(#function)")
-        self.printDebug()
-        print("######################################")
+        activityIndicator.hidesWhenStopped = true
+        GCDDataManager.sharedInstance.retrive(closure: self.setInfo)
+
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // Debug info
-        print("######################################")
-        print("\(#function)")
-        self.printDebug()
-        print("######################################")
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        // Debug info
-        print("######################################")
-        print("\(#function)")
-        self.printDebug()
-        print("######################################")
-    }
-    override func viewDidDisappear(_ animated: Bool) {
-        // Debug info
-        print("######################################")
-        print("\(#function)")
-        self.printDebug()
-        print("######################################")
-    }
     
+
     
     
     func printDebug(){
@@ -128,19 +115,48 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         self.present(alert, animated: true)
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Debug info
-        print("######################################")
-        print("\(#function)")
-        self.printDebug()
-        print("######################################")
-        // Dispose of any resources that can be recreated.
+    
+    
+    func setInfo(user:UserData?){
+        if let data = user{
+            self.userImage.image = data.image
+            self.aboutTextView.text = data.about
+            self.colorText.textColor = data.color
+            self.nameField.text = data.name
+            
+        }
+        
     }
-
+    
     @IBAction func saveAction(_ sender: Any) {
-        print("Сохранение данных профиля")
+        saving = true
+        let toSaveObject = UserData(name: nameField.text, image: userImage.image, about: aboutTextView.text, color: colorText.textColor)
+        if let sender = sender as? UIButton{
+            switch sender.tag {
+            case 1:
+                print("GCD")
+                GCDDataManager.sharedInstance.save(object: toSaveObject, closure: { 
+                    self.saving = false
+                    let alert = UIAlertController(title: "Сохранение успешно", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                        // perhaps use action.title here
+                    })
+                    self.present(alert, animated: true)
+                })
+            case 2:
+                print("Operation")
+                OperationDataManager.sharedInstance.save(object: toSaveObject, closure: {
+                    self.saving = false
+                    let alert = UIAlertController(title: "Сохранение успешно", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                        // perhaps use action.title here
+                    })
+                    self.present(alert, animated: true)
+                })
+            default:
+                print("default")
+            }
+        }
     }
     
     @IBAction func colorButtonTaped(_ sender: UIButton) {

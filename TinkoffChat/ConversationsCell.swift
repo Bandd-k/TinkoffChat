@@ -45,7 +45,7 @@ class ConversationsCell: UITableViewCell,ConversationCellConfiguration {
     }
     var date:Date?{
         didSet{
-            if(date != nil){
+            if(date != nil && (messageLabel.text != nil) ){
                 let currentDate = Date()
                 let formatter = DateFormatter()
                 formatter.dateStyle = .medium

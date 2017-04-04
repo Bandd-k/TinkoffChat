@@ -11,6 +11,7 @@
 		50414CDB1E87D458001F5A92 /* ConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CDA1E87D458001F5A92 /* ConversationsCell.swift */; };
 		50414CDD1E87FCFA001F5A92 /* DialogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */; };
 		5041F1391E893EEC00DE2174 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5041F1381E893EEC00DE2174 /* MessageViewCell.swift */; };
+		506995881E939DB000E6076B /* Managers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506995871E939DB000E6076B /* Managers.swift */; };
 		50AF2A911E7F1F6400A5CC4A /* UIColor+MyAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */; };
 		50FE92A41E6D811900099E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92A31E6D811900099E0B /* AppDelegate.swift */; };
 		50FE92A61E6D811900099E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92A51E6D811900099E0B /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		50414CDA1E87D458001F5A92 /* ConversationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsCell.swift; sourceTree = "<group>"; };
 		50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueViewController.swift; sourceTree = "<group>"; };
 		5041F1381E893EEC00DE2174 /* MessageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
+		506995871E939DB000E6076B /* Managers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managers.swift; sourceTree = "<group>"; };
 		50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MyAppColor.swift"; sourceTree = "<group>"; };
 		50FE92A01E6D811900099E0B /* TinkoffChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FE92A31E6D811900099E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
 				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
 				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
+				506995871E939DB000E6076B /* Managers.swift */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				5041F1391E893EEC00DE2174 /* MessageViewCell.swift in Sources */,
 				50414CDD1E87FCFA001F5A92 /* DialogueViewController.swift in Sources */,
+				506995881E939DB000E6076B /* Managers.swift in Sources */,
 				50FE92A61E6D811900099E0B /* ViewController.swift in Sources */,
 				50414CD91E86E3D7001F5A92 /* ConversationsListViewController.swift in Sources */,
 				50414CDB1E87D458001F5A92 /* ConversationsCell.swift in Sources */,
