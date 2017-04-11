@@ -12,6 +12,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="gbG-tJ-14s">
+            <objects>
+                <viewController id="31c-Ht-mHS" customClass="MCViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gkz-FP-qgE"/>
+                        <viewControllerLayoutGuide type="bottom" id="WoT-86-FE9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uUH-Aw-lNq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25X-XM-i3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2942" y="212"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vew-W9-cva">
             <objects>
@@ -54,7 +72,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lXO-Vi-dHE" id="rI5-x3-69U">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acp-fw-eFZ">
@@ -153,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kk8-bO-iM6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="605"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="firstId" rowHeight="44" id="wqK-BM-vzs" customClass="MessageViewCell" customModule="TinkoffChat" customModuleProvider="target">
@@ -208,16 +226,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttv-c8-aj8">
+                                <rect key="frame" x="32" y="621" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kk8-bO-iM6" secondAttribute="trailing" id="29n-Ei-ba5"/>
-                            <constraint firstItem="X3b-Us-qRr" firstAttribute="top" secondItem="kk8-bO-iM6" secondAttribute="bottom" id="UQF-nx-HsO"/>
+                            <constraint firstItem="Ttv-c8-aj8" firstAttribute="top" secondItem="kk8-bO-iM6" secondAttribute="bottom" constant="16" id="IzW-5Z-4M7"/>
+                            <constraint firstItem="X3b-Us-qRr" firstAttribute="top" secondItem="Ttv-c8-aj8" secondAttribute="bottom" constant="16" id="ayB-jf-oZZ"/>
                             <constraint firstItem="kk8-bO-iM6" firstAttribute="top" secondItem="dfh-h4-rm5" secondAttribute="top" id="n1U-d7-QYF"/>
+                            <constraint firstItem="Ttv-c8-aj8" firstAttribute="leading" secondItem="dfh-h4-rm5" secondAttribute="leadingMargin" constant="16" id="zR2-tb-PEQ"/>
                             <constraint firstItem="kk8-bO-iM6" firstAttribute="leading" secondItem="dfh-h4-rm5" secondAttribute="leading" id="zYW-HD-efI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ttv-c8-aj8" secondAttribute="trailing" constant="16" id="zya-2A-gk6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messageField" destination="Ttv-c8-aj8" id="YeB-R8-12G"/>
                         <outlet property="messagesTable" destination="kk8-bO-iM6" id="7fb-1p-Skb"/>
                     </connections>
                 </viewController>

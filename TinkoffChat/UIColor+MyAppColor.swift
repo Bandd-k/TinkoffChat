@@ -27,4 +27,9 @@ extension String {
         }
         return randomString
     }
+    
+    static func generateMessageId()-> String{
+        let string = "\(arc4random_uniform(UINT32_MAX))+\(Date.timeIntervalSinceReferenceDate)+\(arc4random_uniform(UINT32_MAX))".data(using: .utf8)?.base64EncodedString()
+        return string!
+    }
 }

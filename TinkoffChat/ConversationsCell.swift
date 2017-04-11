@@ -61,6 +61,8 @@ class ConversationsCell: UITableViewCell,ConversationCellConfiguration {
             }
         }
     }
+    
+    var userID: String?
 
     var online:Bool = false
         {
@@ -94,6 +96,7 @@ class ConversationsCell: UITableViewCell,ConversationCellConfiguration {
         date = data.date
         online = data.online
         hasUnreadedMessages = data.hasUnreadedMessages
+        userID = data.userID
     }
 
     override func awakeFromNib() {

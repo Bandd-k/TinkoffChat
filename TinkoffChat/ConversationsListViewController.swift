@@ -11,7 +11,8 @@ import UIKit
 // Возможно лучше было создать отдельный файл
 
 struct cellData {
-    init(name:String?,message:String?,date:Date?,online:Bool,hasUnreaded:Bool) {
+    init(name:String?,userID:String,message:String?,date:Date?,online:Bool,hasUnreaded:Bool) {
+        self.userID = userID
         self.name = name
         self.message = message
         self.date = date
@@ -19,6 +20,7 @@ struct cellData {
         self.hasUnreadedMessages = hasUnreaded
     }
     var name: String?
+    var userID: String
     var message: String?
     var date:Date?
     var online:Bool
@@ -26,38 +28,30 @@ struct cellData {
 }
 
 
-var dialoges: [cellData] = generator()
 
 let onlineUsers = 30
 let offlineUsers = 20
 
-func generator()->[cellData]{
-    var array:[cellData] = []
-    for index in 1...onlineUsers{
-        array.append(cellData(name: String.random(length: 1+Int(arc4random_uniform(5))), message: String.random(length: Int(arc4random_uniform(10))), date: Date.init(timeIntervalSinceNow: TimeInterval(-1 * Int(arc4random_uniform(24*60*60*2)))), online: true, hasUnreaded: index%5==0))
-    }
-    for index in 1...offlineUsers{
-        array.append(cellData(name: String.random(length: 1+Int(arc4random_uniform(5))), message: String.random(length: Int(arc4random_uniform(10))), date: Date.init(timeIntervalSinceNow: TimeInterval(-1 * Int(arc4random_uniform(24*60*60*2)))), online: false, hasUnreaded: index%4==0))
-    }
-    return array
-}
+
+
+
 
 
 class ConversationsListViewController: UIViewController,UITableViewDataSource{
-
+    var dialoges: [cellData] = []
+    let comm = Communicator.sharedInstance
+    let man = CommunicationManager.sharedInstance
     @IBOutlet weak var dialoguesTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         dialoguesTable.dataSource = self
+        //print(Communicator.sharedInstance)
+        CommunicationManager.sharedInstance.controller = self
         //dialoguesTable.delegate = self
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     // MARK: - Navigation
@@ -65,6 +59,16 @@ class ConversationsListViewController: UIViewController,UITableViewDataSource{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "dialogue"{
             if let cell = sender as? ConversationsCell{
+                //comm.sendMessage(string: "Hi From Den", to: cell.userID!, completionHandler: nil)
+                if let dest = segue.destination as? DialogueViewController{
+                    dest.userID = cell.userID
+                    CommunicationManager.sharedInstance.chatController = dest
+                    cell.hasUnreadedMessages = false
+                    if let msg = cell.message{
+                        dest.messages.append((msg,true))
+                    }
+                }
+                
                 segue.destination.navigationItem.title = cell.name
             }
         }
@@ -79,10 +83,11 @@ class ConversationsListViewController: UIViewController,UITableViewDataSource{
     // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2;
+        return 1;
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // в будущем считать элементы массива
+        return self.dialoges.count
         if section==0{
             return onlineUsers
         }

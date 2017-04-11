@@ -8,22 +8,21 @@
 
 import UIKit
 import QuartzCore
-class DialogueViewController: UIViewController,UITableViewDataSource {
+class DialogueViewController: UIViewController,UITableViewDataSource,UITextFieldDelegate {
 
-    var messages:[String] = [String.random(length: 1),String.random(length: 30),String.random(length: 300),String.random(length: 1),String.random(length: 30),String.random(length: 300)]
+    var messages:[(String,Bool)] = []
+    var userID: String?
     @IBOutlet weak var messagesTable: UITableView!
+    @IBOutlet weak var messageField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesTable.dataSource = self
         messagesTable.rowHeight = UITableViewAutomaticDimension
         messagesTable.estimatedRowHeight = 88
+        messageField.delegate = self
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     /*
@@ -46,9 +45,9 @@ class DialogueViewController: UIViewController,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(indexPath.row%2==0){
+        if(messages[indexPath.row].1 == true){
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstId", for: indexPath) as? MessageViewCell
-            cell?.msgText = messages[indexPath.row]
+            cell?.msgText = messages[indexPath.row].0
             cell?.messageLabel.backgroundColor = UIColor(red: 102/255, green: 178/255, blue: 255/255, alpha: 1)
             cell?.messageLabel.layer.masksToBounds = true
             cell?.messageLabel.layer.cornerRadius = 3
@@ -57,13 +56,29 @@ class DialogueViewController: UIViewController,UITableViewDataSource {
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondId", for: indexPath) as? MessageViewCell
-            cell?.msgText = messages[indexPath.row]
+            cell?.msgText = messages[indexPath.row].0
             cell?.messageLabel.backgroundColor = UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 1)
             cell?.messageLabel.layer.masksToBounds = true
             cell?.messageLabel.layer.cornerRadius = 3
             return cell!
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let txt = textField.text{
+            messages.append((txt,false))
+            Communicator.sharedInstance.sendMessage(string: txt, to: userID!, completionHandler: nil)
+            DispatchQueue.main.async{
+                self.messagesTable.reloadData()
+            }
+            textField.text = ""
+        }
+        textField.endEditing(true)
+        
+        return true;
+    }
+    
+    
 
 
 }
