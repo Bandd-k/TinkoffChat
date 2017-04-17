@@ -175,7 +175,7 @@ class CommunicationManager: CommunicatorDelegate{
     static let sharedInstance: CommunicationManager = CommunicationManager()
     // Discovering
     func didFoundUser(userID:String,userName:String?){
-        let data:cellData = cellData(name: userName,userID:userID, message: userID, date: Date(), online: true, hasUnreaded: false)
+        let data:cellData = cellData(name: userName,userID:userID, message: nil, date: Date(), online: true, hasUnreaded: false)
         self.controller?.dialoges.insert(data, at: 0)
         DispatchQueue.main.async{
             self.controller?.dialoguesTable.reloadData()
@@ -197,9 +197,17 @@ class CommunicationManager: CommunicatorDelegate{
     
     //errors
     func failedToStartBrowsingForUsers(error: Error){
+        let alert = UIAlertController(title: error.localizedDescription, message:nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default) { action in
+        })
+        controller?.present(alert,animated: true)
         
     }
     func failedToStartAdvertising(error: Error){
+        let alert = UIAlertController(title: error.localizedDescription, message:nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default) { action in
+        })
+        controller?.present(alert,animated: true)
         
     }
     
@@ -207,9 +215,11 @@ class CommunicationManager: CommunicatorDelegate{
     func didReceiveMessage(text: String, fromUser: String,toUser: String){
         let systemSoundID: SystemSoundID = 1016
         AudioServicesPlaySystemSound (systemSoundID)
+        var showed = false
         if self.chatController?.userID == fromUser{
             print("recieved")
             self.chatController?.messages.append((text,true))
+            showed = true
             DispatchQueue.main.async{
                 self.chatController?.messagesTable.reloadData()
             }
@@ -219,7 +229,12 @@ class CommunicationManager: CommunicatorDelegate{
             if dialog.userID == fromUser{
                 controller?.dialoges[index].message = text
                 controller?.dialoges[index].date = Date()
-                controller?.dialoges[index].hasUnreadedMessages = true
+                if !showed{
+                    controller?.dialoges[index].hasUnreadedMessages = true
+                }
+                else{
+                    controller?.dialoges[index].hasUnreadedMessages = false
+                }
                 DispatchQueue.main.async{
                     self.controller?.dialoguesTable.reloadData()
                 }
