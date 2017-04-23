@@ -28,5 +28,17 @@ class MessageViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configurate(text:String,incoming:Bool){
+        msgText = text
+        messageLabel.layer.masksToBounds = true
+        messageLabel.layer.cornerRadius = 3
+        if incoming {
+            messageLabel.backgroundColor = UIColor(red: 102/255, green: 178/255, blue: 255/255, alpha: 1)
+        }
+        else{
+            messageLabel.backgroundColor = UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 1)
+        }
+    }
 
 }

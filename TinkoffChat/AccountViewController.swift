@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var colorText: UILabel!
     @IBOutlet weak var userImage: UIImageView!
@@ -35,6 +35,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     @IBOutlet weak var colorButton4: UIButton!
     
     @IBOutlet weak var colorButton5: UIButton!
+    let GCDManager: GCDDataManager = GCDDataManager()
+    let operationManager: OperationDataManager = OperationDataManager()
     
     
     var saving: Bool  = false{
@@ -59,6 +61,11 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.configurateController()
+        GCDManager.retrive(closure: self.setInfo)
+
+    }
+    func configurateController(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTapAction))
         view.addGestureRecognizer(tapGesture)
         nameField.delegate = self
@@ -69,10 +76,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary
         activityIndicator.hidesWhenStopped = true
-        GCDDataManager.sharedInstance.retrive(closure: self.setInfo)
-
     }
-    
     
 
     
@@ -135,28 +139,27 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
             switch sender.tag {
             case 1:
                 print("GCD")
-                GCDDataManager.sharedInstance.save(object: toSaveObject, closure: { 
-                    self.saving = false
-                    let alert = UIAlertController(title: "Сохранение успешно", message: "", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
-                        // perhaps use action.title here
-                    })
-                    self.present(alert, animated: true)
+                GCDManager.save(object: toSaveObject, closure: { 
+                    self.saveClosure()
                 })
             case 2:
                 print("Operation")
-                OperationDataManager.sharedInstance.save(object: toSaveObject, closure: {
-                    self.saving = false
-                    let alert = UIAlertController(title: "Сохранение успешно", message: "", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
-                        // perhaps use action.title here
-                    })
-                    self.present(alert, animated: true)
+                operationManager.save(object: toSaveObject, closure: {
+                    self.saveClosure()
                 })
             default:
                 print("default")
             }
         }
+    }
+    
+    func saveClosure(){
+        self.saving = false
+        let alert = UIAlertController(title: "Сохранение успешно", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true)
     }
     
     @IBAction func colorButtonTaped(_ sender: UIButton) {

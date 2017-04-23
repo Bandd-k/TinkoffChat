@@ -1,15 +1,15 @@
 //
-//  MCCommutator.swift
+//  MCCommunicator.swift
 //  TinkoffChat
 //
-//  Created by Denis Karpenko on 07.04.17.
+//  Created by Denis Karpenko on 21.04.17.
 //  Copyright © 2017 Denis Karpenko. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import MultipeerConnectivity
-import AVFoundation
+
 class Communicator: NSObject{
     private let serviceBrowser : MCNearbyServiceBrowser
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
@@ -18,9 +18,8 @@ class Communicator: NSObject{
     let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     var sessions: [String:MCSession] = [:] //dispname: session
     var names: [String:String] = [:]
-    static let sharedInstance: Communicator = Communicator()
-    var delegate: CommunicatorDelegate? = CommunicationManager.sharedInstance//{get set}
-    var online: Bool = true //{get set}
+    var delegate: CommunicatorDelegate?
+    var online: Bool = true
     
     
     override init() {
@@ -44,7 +43,7 @@ class Communicator: NSObject{
             let dataExample = try JSONSerialization.data(withJSONObject: message, options: .prettyPrinted)
             do {
                 if let session = self.sessions[userID]{
-                try session.send(dataExample, toPeers: (session.connectedPeers), with: .reliable)
+                    try session.send(dataExample, toPeers: (session.connectedPeers), with: .reliable)
                 }
             }
             catch let error {
@@ -56,7 +55,7 @@ class Communicator: NSObject{
         }
         completionHandler?(true,nil)
         
-
+        
     }
 }
 
@@ -87,7 +86,7 @@ extension Communicator : MCNearbyServiceBrowserDelegate {
         delegate?.failedToStartBrowsingForUsers(error: error)
         //NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
     }
-
+    
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         // add if already exist
         if let name = info?["userName"]{
@@ -95,10 +94,10 @@ extension Communicator : MCNearbyServiceBrowserDelegate {
             print ("founded")
             if self.sessions[peerID.displayName] == nil{
                 print ("added")
-            let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .none)
-            session.delegate = self
-            self.sessions[peerID.displayName] = session
-            browser.invitePeer(peerID, to: session, withContext: nil, timeout: 30)
+                let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .none)
+                session.delegate = self
+                self.sessions[peerID.displayName] = session
+                browser.invitePeer(peerID, to: session, withContext: nil, timeout: 30)
             }
         }
     }
@@ -122,7 +121,7 @@ extension Communicator : MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-
+        
         
         do {
             var data = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:String]
@@ -148,100 +147,4 @@ extension Communicator : MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
         //NSLog("%@", "didFinishReceivingResourceWithName")
     }
-}
-
-
-protocol CommunicatorDelegate: class {
-    func didFoundUser(userID:String,userName:String?)
-    func didLostUser(userID:String)
-    
-    //errors
-    func failedToStartBrowsingForUsers(error: Error)
-    func failedToStartAdvertising(error: Error)
-    
-    //messages
-    func didReceiveMessage(text: String, fromUser: String,toUser: String)
-}
-
-
-
-class CommunicationManager: CommunicatorDelegate{
-    weak var controller: ConversationsListViewController?
-    weak var chatController: DialogueViewController?
-    
-    init(){
-        print("inited")
-    }
-    static let sharedInstance: CommunicationManager = CommunicationManager()
-    // Discovering
-    func didFoundUser(userID:String,userName:String?){
-        let data:cellData = cellData(name: userName,userID:userID, message: nil, date: Date(), online: true, hasUnreaded: false)
-        self.controller?.dialoges.insert(data, at: 0)
-        DispatchQueue.main.async{
-            self.controller?.dialoguesTable.reloadData()
-        }
-        // add to chat
-        
-    }
-    func didLostUser(userID:String){
-        for (index,dialog) in (controller?.dialoges)!.enumerated(){
-            if dialog.userID == userID{
-                controller?.dialoges.remove(at: index)
-                DispatchQueue.main.async{
-                    self.controller?.dialoguesTable.reloadData()
-                }
-            }
-        }
-        
-    }
-    
-    //errors
-    func failedToStartBrowsingForUsers(error: Error){
-        let alert = UIAlertController(title: error.localizedDescription, message:nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default) { action in
-        })
-        controller?.present(alert,animated: true)
-        
-    }
-    func failedToStartAdvertising(error: Error){
-        let alert = UIAlertController(title: error.localizedDescription, message:nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default) { action in
-        })
-        controller?.present(alert,animated: true)
-        
-    }
-    
-    //messages
-    func didReceiveMessage(text: String, fromUser: String,toUser: String){
-        let systemSoundID: SystemSoundID = 1016
-        AudioServicesPlaySystemSound (systemSoundID)
-        var showed = false
-        if self.chatController?.userID == fromUser{
-            print("recieved")
-            self.chatController?.messages.append((text,true))
-            showed = true
-            DispatchQueue.main.async{
-                self.chatController?.messagesTable.reloadData()
-            }
-            
-        }
-        for (index,dialog) in (controller?.dialoges)!.enumerated(){
-            if dialog.userID == fromUser{
-                controller?.dialoges[index].message = text
-                controller?.dialoges[index].date = Date()
-                if !showed{
-                    controller?.dialoges[index].hasUnreadedMessages = true
-                }
-                else{
-                    controller?.dialoges[index].hasUnreadedMessages = false
-                }
-                DispatchQueue.main.async{
-                    self.controller?.dialoguesTable.reloadData()
-                }
-            }
-        }
-    }
-    
-    
-    
 }

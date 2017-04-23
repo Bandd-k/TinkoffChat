@@ -24,15 +24,20 @@
 		500629811E9D719F00D838AF /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006296F1E9D719F00D838AF /* IQToolbar.swift */; };
 		500629821E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500629701E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift */; };
 		500629831E9D719F00D838AF /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 500629721E9D719F00D838AF /* IQKeyboardManager.bundle */; };
+		500629851EA7DB7200D838AF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500629841EA7DB7200D838AF /* CoreDataStack.swift */; };
 		50414CD91E86E3D7001F5A92 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */; };
 		50414CDB1E87D458001F5A92 /* ConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CDA1E87D458001F5A92 /* ConversationsCell.swift */; };
 		50414CDD1E87FCFA001F5A92 /* DialogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */; };
 		5041F1391E893EEC00DE2174 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5041F1381E893EEC00DE2174 /* MessageViewCell.swift */; };
-		506995881E939DB000E6076B /* Managers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506995871E939DB000E6076B /* Managers.swift */; };
-		508DE3121E97CD9B0018A611 /* MCCommutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508DE3111E97CD9B0018A611 /* MCCommutator.swift */; };
+		506995881E939DB000E6076B /* GCDDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506995871E939DB000E6076B /* GCDDataManager.swift */; };
 		50AF2A911E7F1F6400A5CC4A /* UIColor+MyAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */; };
+		50D2D7AB1EA9FC9200F76C28 /* MCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D2D7AA1EA9FC9200F76C28 /* MCManager.swift */; };
+		50D2D7AD1EA9FF0300F76C28 /* OperationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D2D7AC1EA9FF0300F76C28 /* OperationDataManager.swift */; };
+		50D2D7AF1EA9FF6800F76C28 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D2D7AE1EA9FF6800F76C28 /* UserData.swift */; };
+		50D2D7B11EAA041B00F76C28 /* MCCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D2D7B01EAA041B00F76C28 /* MCCommunicator.swift */; };
+		50D2D7B41EAB9B2000F76C28 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D2D7B31EAB9B2000F76C28 /* CellData.swift */; };
 		50FE92A41E6D811900099E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92A31E6D811900099E0B /* AppDelegate.swift */; };
-		50FE92A61E6D811900099E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92A51E6D811900099E0B /* ViewController.swift */; };
+		50FE92A61E6D811900099E0B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92A51E6D811900099E0B /* AccountViewController.swift */; };
 		50FE92A91E6D811900099E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50FE92A71E6D811900099E0B /* Main.storyboard */; };
 		50FE92AC1E6D811900099E0B /* TinkoffChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50FE92AA1E6D811900099E0B /* TinkoffChat.xcdatamodeld */; };
 		50FE92AE1E6D811900099E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50FE92AD1E6D811900099E0B /* Assets.xcassets */; };
@@ -70,16 +75,21 @@
 		5006296F1E9D719F00D838AF /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		500629701E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		500629721E9D719F00D838AF /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		500629841EA7DB7200D838AF /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		50414CDA1E87D458001F5A92 /* ConversationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsCell.swift; sourceTree = "<group>"; };
 		50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueViewController.swift; sourceTree = "<group>"; };
 		5041F1381E893EEC00DE2174 /* MessageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
-		506995871E939DB000E6076B /* Managers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managers.swift; sourceTree = "<group>"; };
-		508DE3111E97CD9B0018A611 /* MCCommutator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCCommutator.swift; sourceTree = "<group>"; };
+		506995871E939DB000E6076B /* GCDDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDDataManager.swift; sourceTree = "<group>"; };
 		50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MyAppColor.swift"; sourceTree = "<group>"; };
+		50D2D7AA1EA9FC9200F76C28 /* MCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCManager.swift; sourceTree = "<group>"; };
+		50D2D7AC1EA9FF0300F76C28 /* OperationDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationDataManager.swift; sourceTree = "<group>"; };
+		50D2D7AE1EA9FF6800F76C28 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		50D2D7B01EAA041B00F76C28 /* MCCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCCommunicator.swift; sourceTree = "<group>"; };
+		50D2D7B31EAB9B2000F76C28 /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		50FE92A01E6D811900099E0B /* TinkoffChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FE92A31E6D811900099E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		50FE92A51E6D811900099E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		50FE92A51E6D811900099E0B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		50FE92A81E6D811900099E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50FE92AB1E6D811900099E0B /* TinkoffChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinkoffChat.xcdatamodel; sourceTree = "<group>"; };
 		50FE92AD1E6D811900099E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +184,50 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		50D2D7A61EA9FB4000F76C28 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
+				50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */,
+				50FE92A51E6D811900099E0B /* AccountViewController.swift */,
+				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
+				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
+				50D2D7AE1EA9FF6800F76C28 /* UserData.swift */,
+				50D2D7B31EAB9B2000F76C28 /* CellData.swift */,
+				50FE92A71E6D811900099E0B /* Main.storyboard */,
+			);
+			name = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		50D2D7A81EA9FB6400F76C28 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				50D2D7B21EAA058300F76C28 /* MultipeerConnectivity */,
+			);
+			name = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		50D2D7A91EA9FB7700F76C28 /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				506995871E939DB000E6076B /* GCDDataManager.swift */,
+				50D2D7AC1EA9FF0300F76C28 /* OperationDataManager.swift */,
+				50D2D7B01EAA041B00F76C28 /* MCCommunicator.swift */,
+				500629841EA7DB7200D838AF /* CoreDataStack.swift */,
+				50FE92AA1E6D811900099E0B /* TinkoffChat.xcdatamodeld */,
+				5006295B1E9D719F00D838AF /* IQKeyboardManagerSwift */,
+			);
+			name = CoreLayer;
+			sourceTree = "<group>";
+		};
+		50D2D7B21EAA058300F76C28 /* MultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				50D2D7AA1EA9FC9200F76C28 /* MCManager.swift */,
+			);
+			name = MultipeerConnectivity;
+			sourceTree = "<group>";
+		};
 		50FE92971E6D811900099E0B = {
 			isa = PBXGroup;
 			children = (
@@ -196,21 +250,14 @@
 		50FE92A21E6D811900099E0B /* TinkoffChat */ = {
 			isa = PBXGroup;
 			children = (
-				5006295B1E9D719F00D838AF /* IQKeyboardManagerSwift */,
+				50D2D7A61EA9FB4000F76C28 /* PresentationLayer */,
+				50D2D7A81EA9FB6400F76C28 /* ServiceLayer */,
+				50D2D7A91EA9FB7700F76C28 /* CoreLayer */,
 				50FE92A31E6D811900099E0B /* AppDelegate.swift */,
-				50FE92A51E6D811900099E0B /* ViewController.swift */,
-				50FE92A71E6D811900099E0B /* Main.storyboard */,
 				50FE92AD1E6D811900099E0B /* Assets.xcassets */,
 				50FE92AF1E6D811900099E0B /* LaunchScreen.storyboard */,
 				50FE92B21E6D811900099E0B /* Info.plist */,
-				50FE92AA1E6D811900099E0B /* TinkoffChat.xcdatamodeld */,
 				50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */,
-				50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */,
-				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
-				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
-				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
-				506995871E939DB000E6076B /* Managers.swift */,
-				508DE3111E97CD9B0018A611 /* MCCommutator.swift */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -334,23 +381,28 @@
 				5041F1391E893EEC00DE2174 /* MessageViewCell.swift in Sources */,
 				50414CDD1E87FCFA001F5A92 /* DialogueViewController.swift in Sources */,
 				5006297C1E9D719F00D838AF /* IQKeyboardReturnKeyHandler.swift in Sources */,
-				506995881E939DB000E6076B /* Managers.swift in Sources */,
-				50FE92A61E6D811900099E0B /* ViewController.swift in Sources */,
+				500629851EA7DB7200D838AF /* CoreDataStack.swift in Sources */,
+				506995881E939DB000E6076B /* GCDDataManager.swift in Sources */,
+				50D2D7AD1EA9FF0300F76C28 /* OperationDataManager.swift in Sources */,
+				50FE92A61E6D811900099E0B /* AccountViewController.swift in Sources */,
 				50414CD91E86E3D7001F5A92 /* ConversationsListViewController.swift in Sources */,
 				5006297E1E9D719F00D838AF /* IQBarButtonItem.swift in Sources */,
 				500629771E9D719F00D838AF /* IQUIViewController+Additions.swift in Sources */,
 				500629821E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift in Sources */,
-				508DE3121E97CD9B0018A611 /* MCCommutator.swift in Sources */,
 				50414CDB1E87D458001F5A92 /* ConversationsCell.swift in Sources */,
 				500629811E9D719F00D838AF /* IQToolbar.swift in Sources */,
 				500629731E9D719F00D838AF /* IQNSArray+Sort.swift in Sources */,
+				50D2D7B41EAB9B2000F76C28 /* CellData.swift in Sources */,
 				500629791E9D719F00D838AF /* IQKeyboardManagerConstants.swift in Sources */,
 				50AF2A911E7F1F6400A5CC4A /* UIColor+MyAppColor.swift in Sources */,
 				50FE92A41E6D811900099E0B /* AppDelegate.swift in Sources */,
+				50D2D7AF1EA9FF6800F76C28 /* UserData.swift in Sources */,
+				50D2D7AB1EA9FC9200F76C28 /* MCManager.swift in Sources */,
 				5006297A1E9D719F00D838AF /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				500629741E9D719F00D838AF /* IQUIScrollView+Additions.swift in Sources */,
 				500629781E9D719F00D838AF /* IQUIWindow+Hierarchy.swift in Sources */,
 				5006297B1E9D719F00D838AF /* IQKeyboardManager.swift in Sources */,
+				50D2D7B11EAA041B00F76C28 /* MCCommunicator.swift in Sources */,
 				500629751E9D719F00D838AF /* IQUITextFieldView+Additions.swift in Sources */,
 				5006297F1E9D719F00D838AF /* IQPreviousNextView.swift in Sources */,
 				5006297D1E9D719F00D838AF /* IQTextView.swift in Sources */,

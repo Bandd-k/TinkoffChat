@@ -8,61 +8,30 @@
 
 import UIKit
 
-// Возможно лучше было создать отдельный файл
-
-struct cellData {
-    init(name:String?,userID:String,message:String?,date:Date?,online:Bool,hasUnreaded:Bool) {
-        self.userID = userID
-        self.name = name
-        self.message = message
-        self.date = date
-        self.online = online
-        self.hasUnreadedMessages = hasUnreaded
-    }
-    var name: String?
-    var userID: String
-    var message: String?
-    var date:Date?
-    var online:Bool
-    var hasUnreadedMessages:Bool
-}
-
-
-
-let onlineUsers = 30
-let offlineUsers = 20
-
-
-
-
-
-
-class ConversationsListViewController: UIViewController,UITableViewDataSource{
+class ConversationsListViewController: UIViewController,UITableViewDataSource,MessageReciever{
     var dialoges: [cellData] = []
-    let comm = Communicator.sharedInstance
-    let man = CommunicationManager.sharedInstance
+    let comManager = CommunicationManager()
     @IBOutlet weak var dialoguesTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         dialoguesTable.dataSource = self
         //print(Communicator.sharedInstance)
-        CommunicationManager.sharedInstance.controller = self
+        comManager.controller = self
         //dialoguesTable.delegate = self
-
         // Do any additional setup after loading the view.
-    }
-
     
 
+    
+    }
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "dialogue"{
             if let cell = sender as? ConversationsCell{
-                //comm.sendMessage(string: "Hi From Den", to: cell.userID!, completionHandler: nil)
                 if let dest = segue.destination as? DialogueViewController{
                     dest.userID = cell.userID
-                    CommunicationManager.sharedInstance.chatController = dest
+                    dest.comManager = comManager
+                    comManager.chatController = dest
                     cell.hasUnreadedMessages = false
                     if let msg = cell.message{
                         dest.messages.append((msg,true))
@@ -88,31 +57,63 @@ class ConversationsListViewController: UIViewController,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // в будущем считать элементы массива
         return self.dialoges.count
-        if section==0{
-            return onlineUsers
-        }
-        else{
-            return offlineUsers
-        }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(section==0){
-            return "Online"
-        }
-        else{
-            return "History"
-        }
+        return "Online"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as? ConversationsCell
-        if(indexPath.section==0){
-             cell?.configurate(data: dialoges[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath)
+        if let cell = cell as? ConversationsCell{
+             cell.configurate(data: dialoges[indexPath.row])
+            return cell
         }
-        else{
-            cell?.configurate(data: dialoges[onlineUsers+indexPath.row])
-        }
-        return cell!
+        return cell
     }
 
+    // MARK: - MessageReciever
+    
+    func recieveMessage(text: String, fromUser: String,read: Bool)->Bool{
+        for (index,dialog) in dialoges.enumerated(){
+            if dialog.userID == fromUser{
+                dialoges[index].message = text
+                dialoges[index].date = Date()
+                // make unread
+                if !read{
+                    dialoges[index].hasUnreadedMessages = true
+                }
+                else{
+                    dialoges[index].hasUnreadedMessages = false
+                }
+                DispatchQueue.main.async{
+                    self.dialoguesTable.reloadData()
+                }
+            }
+        }
+        return false
+    }
+    
+    func deleteUser(userID:String){
+        for (index,dialog) in dialoges.enumerated(){
+            if dialog.userID == userID{
+                dialoges.remove(at: index)
+                DispatchQueue.main.async{
+                    self.dialoguesTable.reloadData()
+                }
+            }
+        }
+    }
+    func addUser(userID:String,userName:String?){
+        let data:cellData = cellData(name: userName,userID:userID, message: nil, date: Date(), online: true, hasUnreaded: false)
+        dialoges.insert(data, at: 0)
+        DispatchQueue.main.async{
+            self.dialoguesTable.reloadData()
+        }
+    }
+    func showAlert(error:Error){
+        let alert = UIAlertController(title: error.localizedDescription, message:nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default) { action in
+        })
+        self.present(alert,animated: true)
+    }
 }
