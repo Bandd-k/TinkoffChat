@@ -124,12 +124,12 @@
 			children = (
 				5006295C1E9D719F00D838AF /* Categories */,
 				500629631E9D719F00D838AF /* Constants */,
-				500629661E9D719F00D838AF /* IQKeyboardManager.swift */,
-				500629671E9D719F00D838AF /* IQKeyboardManagerSwift.h */,
-				500629681E9D719F00D838AF /* IQKeyboardReturnKeyHandler.swift */,
 				500629691E9D719F00D838AF /* IQTextView */,
 				5006296B1E9D719F00D838AF /* IQToolbar */,
 				500629711E9D719F00D838AF /* Resources */,
+				500629661E9D719F00D838AF /* IQKeyboardManager.swift */,
+				500629671E9D719F00D838AF /* IQKeyboardManagerSwift.h */,
+				500629681E9D719F00D838AF /* IQKeyboardReturnKeyHandler.swift */,
 			);
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
@@ -184,57 +184,106 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		504334971EAD43A900B3E03F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				50FE92A51E6D811900099E0B /* AccountViewController.swift */,
+				50D2D7B31EAB9B2000F76C28 /* CellData.swift */,
+				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
+				50D2D7AE1EA9FF6800F76C28 /* UserData.swift */,
+			);
+			name = Account;
+			path = Account;
+			sourceTree = "<group>";
+		};
+		504334981EAD43B600B3E03F /* Converasation */ = {
+			isa = PBXGroup;
+			children = (
+				50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */,
+			);
+			name = Converasation;
+			path = Converasation;
+			sourceTree = "<group>";
+		};
+		504334991EAD43EF00B3E03F /* OneDialoge */ = {
+			isa = PBXGroup;
+			children = (
+				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
+				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
+			);
+			name = OneDialoge;
+			path = OneDialoge;
+			sourceTree = "<group>";
+		};
+		5043349A1EAD441B00B3E03F /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				500629841EA7DB7200D838AF /* CoreDataStack.swift */,
+				506995871E939DB000E6076B /* GCDDataManager.swift */,
+				50D2D7AC1EA9FF0300F76C28 /* OperationDataManager.swift */,
+				50FE92AA1E6D811900099E0B /* TinkoffChat.xcdatamodeld */,
+			);
+			name = DataManagers;
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
+		5043349B1EAD445400B3E03F /* MultipeerConnectivityCore */ = {
+			isa = PBXGroup;
+			children = (
+				50D2D7B01EAA041B00F76C28 /* MCCommunicator.swift */,
+			);
+			name = MultipeerConnectivityCore;
+			path = MultipeerConnectivityCore;
+			sourceTree = "<group>";
+		};
 		50D2D7A61EA9FB4000F76C28 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
-				50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */,
-				50FE92A51E6D811900099E0B /* AccountViewController.swift */,
-				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
-				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
-				50D2D7AE1EA9FF6800F76C28 /* UserData.swift */,
-				50D2D7B31EAB9B2000F76C28 /* CellData.swift */,
+				504334971EAD43A900B3E03F /* Account */,
+				504334981EAD43B600B3E03F /* Converasation */,
+				504334991EAD43EF00B3E03F /* OneDialoge */,
 				50FE92A71E6D811900099E0B /* Main.storyboard */,
 			);
 			name = PresentationLayer;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		50D2D7A81EA9FB6400F76C28 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				50D2D7B21EAA058300F76C28 /* MultipeerConnectivity */,
+				50D2D7B21EAA058300F76C28 /* MultipeerConnectivityService */,
 			);
 			name = ServiceLayer;
+			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
 		50D2D7A91EA9FB7700F76C28 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
-				506995871E939DB000E6076B /* GCDDataManager.swift */,
-				50D2D7AC1EA9FF0300F76C28 /* OperationDataManager.swift */,
-				50D2D7B01EAA041B00F76C28 /* MCCommunicator.swift */,
-				500629841EA7DB7200D838AF /* CoreDataStack.swift */,
-				50FE92AA1E6D811900099E0B /* TinkoffChat.xcdatamodeld */,
+				5043349A1EAD441B00B3E03F /* DataManagers */,
 				5006295B1E9D719F00D838AF /* IQKeyboardManagerSwift */,
+				5043349B1EAD445400B3E03F /* MultipeerConnectivityCore */,
 			);
 			name = CoreLayer;
+			path = CoreLayer;
 			sourceTree = "<group>";
 		};
-		50D2D7B21EAA058300F76C28 /* MultipeerConnectivity */ = {
+		50D2D7B21EAA058300F76C28 /* MultipeerConnectivityService */ = {
 			isa = PBXGroup;
 			children = (
 				50D2D7AA1EA9FC9200F76C28 /* MCManager.swift */,
 			);
-			name = MultipeerConnectivity;
+			name = MultipeerConnectivityService;
+			path = MultipeerConnectivityService;
 			sourceTree = "<group>";
 		};
 		50FE92971E6D811900099E0B = {
 			isa = PBXGroup;
 			children = (
-				50FE92C61E6D827400099E0B /* .gitignore */,
+				50FE92A11E6D811900099E0B /* Products */,
 				50FE92A21E6D811900099E0B /* TinkoffChat */,
 				50FE92BA1E6D811900099E0B /* TinkoffChatTests */,
-				50FE92A11E6D811900099E0B /* Products */,
+				50FE92C61E6D827400099E0B /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,13 +299,13 @@
 		50FE92A21E6D811900099E0B /* TinkoffChat */ = {
 			isa = PBXGroup;
 			children = (
+				50D2D7A91EA9FB7700F76C28 /* CoreLayer */,
 				50D2D7A61EA9FB4000F76C28 /* PresentationLayer */,
 				50D2D7A81EA9FB6400F76C28 /* ServiceLayer */,
-				50D2D7A91EA9FB7700F76C28 /* CoreLayer */,
 				50FE92A31E6D811900099E0B /* AppDelegate.swift */,
 				50FE92AD1E6D811900099E0B /* Assets.xcassets */,
-				50FE92AF1E6D811900099E0B /* LaunchScreen.storyboard */,
 				50FE92B21E6D811900099E0B /* Info.plist */,
+				50FE92AF1E6D811900099E0B /* LaunchScreen.storyboard */,
 				50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */,
 			);
 			path = TinkoffChat;
@@ -265,8 +314,8 @@
 		50FE92BA1E6D811900099E0B /* TinkoffChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				50FE92BB1E6D811900099E0B /* TinkoffChatTests.swift */,
 				50FE92BD1E6D811900099E0B /* Info.plist */,
+				50FE92BB1E6D811900099E0B /* TinkoffChatTests.swift */,
 			);
 			path = TinkoffChatTests;
 			sourceTree = "<group>";
@@ -437,6 +486,7 @@
 				50FE92A81E6D811900099E0B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		50FE92AF1E6D811900099E0B /* LaunchScreen.storyboard */ = {
@@ -445,6 +495,7 @@
 				50FE92B01E6D811900099E0B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

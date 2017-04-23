@@ -128,9 +128,4 @@ class DialogueViewController: UIViewController,UITableViewDataSource,UITextField
         })
         self.present(alert,animated: true)
     }
-    
-    
-    
-
-
 }
