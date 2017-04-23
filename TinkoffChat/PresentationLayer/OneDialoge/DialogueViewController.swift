@@ -112,14 +112,18 @@ class DialogueViewController: UIViewController,UITableViewDataSource,UITextField
     func deleteUser(userID:String){
         if self.userID == userID{
             online = false
-            messageField.isHidden = true
+            DispatchQueue.main.async{
+                self.messageField.isHidden = true
+            }
         }
     }
     
     func addUser(userID:String,userName:String?){
         if self.userID == userID{
             online = true
-            messageField.isHidden = false
+            DispatchQueue.main.async{
+                self.messageField.isHidden = false
+            }
         }
     }
     func showAlert(error:Error){
