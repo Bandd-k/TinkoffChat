@@ -26,6 +26,8 @@ class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerC
     @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var saveButtonOperations: UIButton!
+    
+    
     @IBOutlet weak var colorButton1: UIButton!
     
     @IBOutlet weak var colorButton2: UIButton!
@@ -37,6 +39,7 @@ class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerC
     @IBOutlet weak var colorButton5: UIButton!
     let GCDManager: GCDDataManager = GCDDataManager()
     let operationManager: OperationDataManager = OperationDataManager()
+    let coreDataManager: StorageManager = StorageManager()
     
     
     var saving: Bool  = false{
@@ -62,7 +65,8 @@ class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerC
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configurateController()
-        GCDManager.retrive(closure: self.setInfo)
+        //GCDManager.retrive(closure: self.setInfo)
+        coreDataManager.retrive(closure: self.setInfo)
 
     }
     func configurateController(){
@@ -145,6 +149,11 @@ class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerC
             case 2:
                 print("Operation")
                 operationManager.save(object: toSaveObject, closure: {
+                    self.saveClosure()
+                })
+            case 3:
+                print("CoreData")
+                coreDataManager.save(object: toSaveObject, closure: {
                     self.saveClosure()
                 })
             default:

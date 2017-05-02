@@ -25,6 +25,8 @@
 		500629821E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500629701E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift */; };
 		500629831E9D719F00D838AF /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 500629721E9D719F00D838AF /* IQKeyboardManager.bundle */; };
 		500629851EA7DB7200D838AF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500629841EA7DB7200D838AF /* CoreDataStack.swift */; };
+		503205B41EB8F7900014C142 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503205B31EB8F7900014C142 /* StorageManager.swift */; };
+		503205B61EB920030014C142 /* AppUser+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503205B51EB920030014C142 /* AppUser+CoreData.swift */; };
 		50414CD91E86E3D7001F5A92 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */; };
 		50414CDB1E87D458001F5A92 /* ConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CDA1E87D458001F5A92 /* ConversationsCell.swift */; };
 		50414CDD1E87FCFA001F5A92 /* DialogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */; };
@@ -76,6 +78,8 @@
 		500629701E9D719F00D838AF /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		500629721E9D719F00D838AF /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		500629841EA7DB7200D838AF /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		503205B31EB8F7900014C142 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		503205B51EB920030014C142 /* AppUser+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreData.swift"; sourceTree = "<group>"; };
 		50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		50414CDA1E87D458001F5A92 /* ConversationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsCell.swift; sourceTree = "<group>"; };
 		50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +196,6 @@
 				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
 				50D2D7AE1EA9FF6800F76C28 /* UserData.swift */,
 			);
-			name = Account;
 			path = Account;
 			sourceTree = "<group>";
 		};
@@ -201,7 +204,6 @@
 			children = (
 				50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */,
 			);
-			name = Converasation;
 			path = Converasation;
 			sourceTree = "<group>";
 		};
@@ -211,7 +213,6 @@
 				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
 				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
 			);
-			name = OneDialoge;
 			path = OneDialoge;
 			sourceTree = "<group>";
 		};
@@ -220,10 +221,10 @@
 			children = (
 				500629841EA7DB7200D838AF /* CoreDataStack.swift */,
 				506995871E939DB000E6076B /* GCDDataManager.swift */,
+				503205B31EB8F7900014C142 /* StorageManager.swift */,
 				50D2D7AC1EA9FF0300F76C28 /* OperationDataManager.swift */,
 				50FE92AA1E6D811900099E0B /* TinkoffChat.xcdatamodeld */,
 			);
-			name = DataManagers;
 			path = DataManagers;
 			sourceTree = "<group>";
 		};
@@ -232,7 +233,6 @@
 			children = (
 				50D2D7B01EAA041B00F76C28 /* MCCommunicator.swift */,
 			);
-			name = MultipeerConnectivityCore;
 			path = MultipeerConnectivityCore;
 			sourceTree = "<group>";
 		};
@@ -244,7 +244,6 @@
 				504334991EAD43EF00B3E03F /* OneDialoge */,
 				50FE92A71E6D811900099E0B /* Main.storyboard */,
 			);
-			name = PresentationLayer;
 			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
@@ -253,7 +252,6 @@
 			children = (
 				50D2D7B21EAA058300F76C28 /* MultipeerConnectivityService */,
 			);
-			name = ServiceLayer;
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
@@ -264,7 +262,6 @@
 				5006295B1E9D719F00D838AF /* IQKeyboardManagerSwift */,
 				5043349B1EAD445400B3E03F /* MultipeerConnectivityCore */,
 			);
-			name = CoreLayer;
 			path = CoreLayer;
 			sourceTree = "<group>";
 		};
@@ -273,7 +270,6 @@
 			children = (
 				50D2D7AA1EA9FC9200F76C28 /* MCManager.swift */,
 			);
-			name = MultipeerConnectivityService;
 			path = MultipeerConnectivityService;
 			sourceTree = "<group>";
 		};
@@ -300,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				50D2D7A91EA9FB7700F76C28 /* CoreLayer */,
+				503205B51EB920030014C142 /* AppUser+CoreData.swift */,
 				50D2D7A61EA9FB4000F76C28 /* PresentationLayer */,
 				50D2D7A81EA9FB6400F76C28 /* ServiceLayer */,
 				50FE92A31E6D811900099E0B /* AppDelegate.swift */,
@@ -441,12 +438,14 @@
 				50414CDB1E87D458001F5A92 /* ConversationsCell.swift in Sources */,
 				500629811E9D719F00D838AF /* IQToolbar.swift in Sources */,
 				500629731E9D719F00D838AF /* IQNSArray+Sort.swift in Sources */,
+				503205B41EB8F7900014C142 /* StorageManager.swift in Sources */,
 				50D2D7B41EAB9B2000F76C28 /* CellData.swift in Sources */,
 				500629791E9D719F00D838AF /* IQKeyboardManagerConstants.swift in Sources */,
 				50AF2A911E7F1F6400A5CC4A /* UIColor+MyAppColor.swift in Sources */,
 				50FE92A41E6D811900099E0B /* AppDelegate.swift in Sources */,
 				50D2D7AF1EA9FF6800F76C28 /* UserData.swift in Sources */,
 				50D2D7AB1EA9FC9200F76C28 /* MCManager.swift in Sources */,
+				503205B61EB920030014C142 /* AppUser+CoreData.swift in Sources */,
 				5006297A1E9D719F00D838AF /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				500629741E9D719F00D838AF /* IQUIScrollView+Additions.swift in Sources */,
 				500629781E9D719F00D838AF /* IQUIWindow+Hierarchy.swift in Sources */,
