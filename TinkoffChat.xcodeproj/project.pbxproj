@@ -90,7 +90,7 @@
 		500629841EA7DB7200D838AF /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		503205B31EB8F7900014C142 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		503205B51EB920030014C142 /* AppUser+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreData.swift"; sourceTree = "<group>"; };
-		503205B71EBFBC790014C142 /* ConversationDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDataProvider.swift; sourceTree = "<group>"; };
+		503205B71EBFBC790014C142 /* ConversationDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationDataProvider.swift; path = ../../ConversationDataProvider.swift; sourceTree = "<group>"; };
 		503205D71EC0B3730014C142 /* User+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreData.swift"; sourceTree = "<group>"; };
 		50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		50414CDA1E87D458001F5A92 /* ConversationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationsCell.swift; path = ../Account/ConversationsCell.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		50DE8B491EC87C99000780EB /* LinksDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksDownloader.swift; sourceTree = "<group>"; };
 		50F8107D1EC0F367009B525F /* Conversation+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreData.swift"; sourceTree = "<group>"; };
 		50F8107F1EC0F921009B525F /* Message+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreData.swift"; sourceTree = "<group>"; };
-		50F810811EC22C7E009B525F /* ListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataProvider.swift; sourceTree = "<group>"; };
+		50F810811EC22C7E009B525F /* ListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListDataProvider.swift; path = ../../ListDataProvider.swift; sourceTree = "<group>"; };
 		50FE92A01E6D811900099E0B /* TinkoffChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FE92A31E6D811900099E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50FE92A51E6D811900099E0B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				50414CD81E86E3D7001F5A92 /* ConversationsListViewController.swift */,
+				50F810811EC22C7E009B525F /* ListDataProvider.swift */,
 				50414CDA1E87D458001F5A92 /* ConversationsCell.swift */,
 			);
 			path = Converasation;
@@ -246,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				50414CDC1E87FCFA001F5A92 /* DialogueViewController.swift */,
+				503205B71EBFBC790014C142 /* ConversationDataProvider.swift */,
 				5041F1381E893EEC00DE2174 /* MessageViewCell.swift */,
 			);
 			path = OneDialoge;
@@ -344,8 +346,6 @@
 				50FE92B21E6D811900099E0B /* Info.plist */,
 				50FE92AF1E6D811900099E0B /* LaunchScreen.storyboard */,
 				50AF2A901E7F1F6400A5CC4A /* UIColor+MyAppColor.swift */,
-				503205B71EBFBC790014C142 /* ConversationDataProvider.swift */,
-				50F810811EC22C7E009B525F /* ListDataProvider.swift */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";

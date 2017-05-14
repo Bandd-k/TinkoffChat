@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class StorageManager:StorageProtocol {
+    
     let coreDataStack = CoreDataStack.sharedInstance
     func save(object: UserData,closure: @escaping ()->()){
         if let context = coreDataStack.saveContext  {
@@ -47,7 +48,6 @@ class StorageManager:StorageProtocol {
             print ("No mainContext")
         }
     }
-    
     
     func recieveMessage(text: String, fromUser: String,toUser:String){
         if let context = coreDataStack.saveContext {

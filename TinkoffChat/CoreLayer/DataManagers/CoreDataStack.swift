@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 class CoreDataStack {
-    static let sharedInstance: CoreDataStack = CoreDataStack()
+    static let sharedInstance: CoreDataStack = CoreDataStack() // Make it no singleton
     private var storeURL: URL{
         get{
             let documentsDirURL :URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -77,7 +77,7 @@ class CoreDataStack {
     private var _mainContext: NSManagedObjectContext?
     public var mainContext : NSManagedObjectContext? {
         get {
-            if _masterContext == nil {
+            if _mainContext == nil {
                 let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
                 guard let parentContext = self.masterContext else {
                     print("no Master Context!")

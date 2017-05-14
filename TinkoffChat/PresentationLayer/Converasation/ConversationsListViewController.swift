@@ -33,7 +33,6 @@ class ConversationsListViewController: UIViewController,UITableViewDataSource{
         } catch {
             print("Error fetching: \(error)")
         }
-
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

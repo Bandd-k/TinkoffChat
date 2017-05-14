@@ -41,9 +41,9 @@ class DialogueViewController: UIViewController,UITableViewDataSource,UITextField
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-       //let conv = Conversation.findConversation(with: conversationId!, in: CoreDataStack.sharedInstance.saveContext!)
-        //conv?.lastMessage?.isUnread = false
-        //CoreDataStack.sharedInstance.performSave(context: CoreDataStack.sharedInstance.saveContext!, completionHandler: nil)
+       let conv = Conversation.findConversation(with: conversationId!, in: CoreDataStack.sharedInstance.saveContext!)
+        conv?.lastMessage?.isUnread = false
+        CoreDataStack.sharedInstance.performSave(context: CoreDataStack.sharedInstance.saveContext!, completionHandler: nil) // I can't undersand why this code is not work. Make save only in two contexts.
     }
     
     func configurateTable(){
