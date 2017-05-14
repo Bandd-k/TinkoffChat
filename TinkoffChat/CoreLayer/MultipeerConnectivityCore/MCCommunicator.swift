@@ -69,7 +69,6 @@ extension Communicator : MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
         //if((names[peerID.displayName] != nil)){
-        print("Inside")
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .none)
         invitationHandler(true, session)
         session.delegate = self
@@ -128,7 +127,7 @@ extension Communicator : MCSessionDelegate {
             //data["text"] ?? text
             //data["messageId"] ???
             //add nil handlers
-            delegate?.didReceiveMessage(text: data["text"]!, fromUser: peerID.displayName, toUser: self.discoveryInfo["userName"]!)
+            delegate?.didReceiveMessage(text: data["text"]!, fromUser: peerID.displayName, toUser: UIDevice.current.name)
         }
         catch{
             print ("error")

@@ -46,7 +46,6 @@ extension AppUser {
     }
     
     
-    
     static func fetchRequestAppUser(model: NSManagedObjectModel) -> NSFetchRequest<AppUser>? {
         let templateName = "AppUser"
         guard let fetchRequest = model.fetchRequestTemplate(forName: templateName) as? NSFetchRequest<AppUser> else{

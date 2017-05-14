@@ -20,6 +20,9 @@ class MessageViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let angle =  CGFloat(M_PI_2*2)
+        let tr = CGAffineTransform.identity.rotated(by: angle)
+        self.transform = tr
         // Initialization code
     }
 
@@ -34,6 +37,17 @@ class MessageViewCell: UITableViewCell {
         messageLabel.layer.masksToBounds = true
         messageLabel.layer.cornerRadius = 3
         if incoming {
+            messageLabel.backgroundColor = UIColor(red: 102/255, green: 178/255, blue: 255/255, alpha: 1)
+        }
+        else{
+            messageLabel.backgroundColor = UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 1)
+        }
+    }
+    func configurate(with msg:Message){
+        msgText = msg.text
+        messageLabel.layer.masksToBounds = true
+        messageLabel.layer.cornerRadius = 3
+        if msg.reciever?.userId! == UIDevice.current.name { /// CHange!!!
             messageLabel.backgroundColor = UIColor(red: 102/255, green: 178/255, blue: 255/255, alpha: 1)
         }
         else{

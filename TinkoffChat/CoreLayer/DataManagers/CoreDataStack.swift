@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 
 class CoreDataStack {
+    static let sharedInstance: CoreDataStack = CoreDataStack()
     private var storeURL: URL{
         get{
             let documentsDirURL :URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -114,6 +115,7 @@ class CoreDataStack {
     
     public func performSave(context:NSManagedObjectContext,completionHandler: (()-> Void)? ){
         if context.hasChanges{
+            print("context saved")
             context.perform { [weak self] in
                 do{
                     try context.save()
@@ -125,18 +127,18 @@ class CoreDataStack {
                     self?.performSave(context: parent, completionHandler: completionHandler)
                 }
                 else{
-                    DispatchQueue.main.async {
+                    //DispatchQueue.main.async { // probably better to remove dispatch main
                         completionHandler?()
-                    }
+                    //}
                 }
     
             }
             
         }
         else{
-            DispatchQueue.main.async {
+            //DispatchQueue.main.async {
                 completionHandler?()
-            }
+            //}
         }
     }
     

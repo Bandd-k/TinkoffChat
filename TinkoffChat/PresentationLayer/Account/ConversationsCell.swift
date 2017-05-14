@@ -22,8 +22,7 @@ class ConversationsCell: UITableViewCell,ConversationCellConfiguration {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
-    
+    var conversationId:String?
     
     var name: String?{
         didSet{
@@ -97,6 +96,33 @@ class ConversationsCell: UITableViewCell,ConversationCellConfiguration {
         online = data.online
         hasUnreadedMessages = data.hasUnreadedMessages
         userID = data.userID
+    }
+    
+    func configurate(data:Conversation){
+        let participants = data.participants?.allObjects as! [User]
+        var opponent:User?
+        if participants.first?.userId == UIDevice.current.name{
+            opponent = participants.last
+        }
+        else {
+            opponent = participants.first
+        }
+        print ("COnfigurate")
+        print(opponent?.name)
+        let lastMessage = data.lastMessage
+        name = opponent?.name
+        date = lastMessage?.date as Date?
+        online = data.isOnline
+        message = lastMessage?.text
+        print(lastMessage?.isUnread)
+        if let cond = lastMessage?.isUnread{
+            hasUnreadedMessages = cond // time decision
+        }
+        else{
+            hasUnreadedMessages = false
+        }
+        userID = opponent?.userId
+        conversationId = data.conversationId
     }
 
     override func awakeFromNib() {

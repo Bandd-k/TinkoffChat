@@ -32,4 +32,13 @@ extension String {
         let string = "\(arc4random_uniform(UINT32_MAX))+\(Date.timeIntervalSinceReferenceDate)+\(arc4random_uniform(UINT32_MAX))".data(using: .utf8)?.base64EncodedString()
         return string!
     }
+    
+    static func generateConversationId(id1:String,id2:String)->String{
+        if id1>id2{
+            return id1+id2;
+        }
+        else{
+            return id2+id1;
+        }
+    }
 }

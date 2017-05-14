@@ -45,14 +45,17 @@ class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerC
     var saving: Bool  = false{
         didSet{
             if(saving){
-                activityIndicator.startAnimating()
+                self.activityIndicator.startAnimating()
                 saveButton.isEnabled = false
                 saveButtonOperations.isEnabled = false
             }
             else{
-                activityIndicator.stopAnimating()
                 saveButton.isEnabled = true
                 saveButtonOperations.isEnabled = true
+                DispatchQueue.main.async() { () -> Void in
+                    self.activityIndicator.stopAnimating()
+                    
+                }
             }
         }
     }
@@ -119,6 +122,13 @@ class AccountViewController: UIViewController,UITextFieldDelegate,UIImagePickerC
         alert.addAction(UIAlertAction(title: "Выбрать фото", style: .default) { action in
             self.present(self.picker, animated: true, completion: nil)
         })
+        alert.addAction(UIAlertAction(title: "Загрузить изобржанеие", style: .default) { action in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "imageController") as! ImagesController
+            vc.imageViewToChange = self.userImage
+            self.present(vc, animated: true, completion: nil)
+        })
+        
 
         self.present(alert, animated: true)
     }
